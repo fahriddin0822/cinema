@@ -1,5 +1,6 @@
 import React from "react";
-import { Globe, Search } from "lucide-react";
+import { NavLink } from "react-router-dom";
+import { Globe } from "lucide-react";
 import logo from "@/assets/images/logo.png";
 import n1 from "@/assets/images/n1.svg";
 import n2 from "@/assets/images/n2.svg";
@@ -11,29 +12,46 @@ const NavBar = () => {
     <nav className="bg-black px-12 py-4">
       <div className="max-w-7xl max-h-[100px] mx-auto flex items-center justify-between">
         <div className="flex items-center space-x-2">
-          <img src={logo} className="h-[40px]" alt="" />
+          <NavLink to="/">
+            <img src={logo} className="h-[40px]" alt="Logo" />
+          </NavLink>
         </div>
 
         <div className="flex items-center gap-16 justify-center">
-          <div className="section flex flex-col items-center ">
-            <img src={n1} className="flex justify-center" alt="" />
+          <NavLink
+            to="/"
+            className="section flex flex-col items-center"
+            activeClassName="text-red-600"
+          >
+            <img src={n1} className="flex justify-center" alt="Afisha" />
             <p className="text-white text-center">Афиша</p>
-          </div>
-          <div className="section flex flex-col items-center ">
-            <img src={n2} className="flex justify-center" alt="" />
+          </NavLink>
+          <NavLink
+            to="/movies"
+            className="section flex flex-col items-center"
+            activeClassName="text-red-600"
+          >
+            <img src={n2} className="flex justify-center" alt="Sessions" />
             <p className="text-white text-center">Сеансы</p>
-          </div>
-          <div className="section flex flex-col items-center ">
-            <img src={n3} className="flex justify-center" alt="" />
+          </NavLink>
+          <NavLink
+            to="/details"
+            className="section flex flex-col items-center"
+            activeClassName="text-red-600"
+          >
+            <img src={n3} className="flex justify-center" alt="Tickets" />
             <p className="text-white text-center">Билеты</p>
-          </div>
-          <div className="section flex flex-col items-center ">
-            <img src={n4} className="flex justify-center" alt="" />
+          </NavLink>
+          <NavLink
+            to="/"
+            className="section flex flex-col items-center"
+            activeClassName="text-red-600"
+          >
+            <img src={n4} className="flex justify-center" alt="Search" />
             <p className="text-white text-center">Поиск</p>
-          </div>
+          </NavLink>
         </div>
 
-        {/* Right Side */}
         <div className="flex items-center space-x-4">
           <div className="flex items-center space-x-2">
             <Globe className="w-5 h-5 text-gray-400" />
@@ -45,19 +63,6 @@ const NavBar = () => {
         </div>
       </div>
     </nav>
-  );
-};
-
-// NavLink component for consistent styling
-const NavLink = ({ icon, text }) => {
-  return (
-    <a
-      href="#"
-      className="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors"
-    >
-      {typeof icon === "string" ? icon : icon}
-      <span>{text}</span>
-    </a>
   );
 };
 

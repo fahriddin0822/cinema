@@ -68,9 +68,7 @@ const Home = () => {
   return (
     <div>
       <div className="container w-[100%] overflow-hidden">
-        <Header />
         <MainSlider data={sliderData} />
-
         <CardSlider data={cardSliderData} />
       </div>
     </div>
